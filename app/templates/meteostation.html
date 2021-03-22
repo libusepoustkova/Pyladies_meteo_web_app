@@ -1,0 +1,65 @@
+<html>
+<head>
+    <style>
+html {
+	box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 50px;
+	font: 18px/1.5 sans-serif;
+	background-color: white;
+	color: black;
+}
+
+h1 {
+    font-family: "Montserrat", serif;
+	font-size: 36px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  background-color: cyan;
+}
+
+
+    </style>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Meteo</title>
+    {% endif %}
+</head>
+<body>
+
+<h1>Meteostation {{ meteost.name }}</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Temperature</th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for md in meteost_data %}
+        <tr>
+            <td>{{ md.id }}</td>
+            <td>{{ md.date }}</td>
+            <td>{{ md.temperature }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
